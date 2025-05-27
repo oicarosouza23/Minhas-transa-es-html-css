@@ -1,9 +1,9 @@
 :root {
-    --primary-color: #5a67d8;
-    --primary-dark: #4c51bf;
+    --primary-color: #000000;
+    --primary-dark: #000000;
     --secondary-color: #f6ad55;
-    --light-color: #f8fafc;
-    --dark-color: #2d3748;
+    --light-color: #000000;
+    --dark-color: #000000;
     --success-color: #48bb78;
     --danger-color: #f56565;
     --border-radius: 12px;
@@ -14,7 +14,7 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+    background-color: #000000 !important; /* Fundo preto sólido */
     color: var(--dark-color);
     min-height: 100vh;
     line-height: 1.6;
@@ -26,15 +26,12 @@ body {
     padding: 40px;
     background-color: #fff;
     border-radius: var(--border-radius);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    box-shadow: none; /* Removido brilho */
     text-align: center;
-    backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
     transition: var(--transition);
 }
 
 .container:hover {
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
     transform: translateY(-2px);
 }
 
@@ -141,6 +138,7 @@ h2::after {
     border: none;
     cursor: pointer;
     font-size: 1rem;
+    position: relative; /* Necessário para ::after */
 }
 
 .btn:hover {
@@ -175,24 +173,30 @@ h2::after {
     transform: translateX(100%);
 }
 
-/* Adicionando responsividade */
+/* Responsividade */
 @media (max-width: 768px) {
     .container {
         margin: 20px;
         padding: 25px;
     }
-    
+
     .tabela-transacoes {
         display: block;
         overflow-x: auto;
     }
-    
+
     .botoes {
         flex-direction: column;
         gap: 15px;
     }
-    
+
     .btn {
         width: 100%;
     }
+}
+
+/* Remover reflexo ao selecionar */
+::selection {
+    background: transparent;
+    color: inherit;
 }
